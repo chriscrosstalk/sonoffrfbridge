@@ -1,0 +1,43 @@
+- id: '1621138990255'
+  alias: Sonoff RF Receive
+  trigger:
+    platform: event
+    event_type: sonoff.remote
+  action:
+    service: persistent_notification.create
+    data_template:
+      title: Sonoff RF Receive
+      message: |-
+        Name: {{ trigger.event.data.name }}
+        Command: {{ trigger.event.data.command }}
+        Time: {{ trigger.event.data.ts }}
+
+- id: '1622613626154'
+  alias: RF LEDs on with motion
+  description: 'RF LEDs on with motion'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion1 # 'motion1' should be the name of your sensor in eWeLink
+    from: 'off'
+    to: 'on'
+  action:
+  - service: remote.send_command
+    target:
+      entity_id: remote.sonoff_1001108bb1 #Substitute your own Sonoff entity_id here
+    data:
+      command: 0
+
+- id: '16226136486155'
+  alias: RF LEDs off after 30 seconds
+  description: 'RF LEDs off after 30 seconds of no motion'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion1 # 'motion1' should be the name of your sensor in eWeLink
+    to: 'off'
+    for: '00:00:30'
+  action:
+  - service: remote.send_command
+    target:
+      entity_id: remote.sonoff_1001108bb1 #Substitute your own Sonoff entity_id here
+    data:
+      command: 1
