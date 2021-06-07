@@ -15,6 +15,6 @@ sonoff:
   password: your eWeLink password
   reload: always # update device list every time HA starts
   rfbridge:
-    Motion 1:  # sensor name in eWeLink application
+    Motion1:  # sensor name in eWeLink application
       device_class: motion
       timeout: 60  # optional (default 120), timeout in seconds for auto turn off
