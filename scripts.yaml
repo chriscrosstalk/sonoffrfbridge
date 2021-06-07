@@ -4,7 +4,7 @@ send_button1:
   - service: remote.send_command
     data:
       entity_id: remote.sonoff_1001108bb1 #Substitute your own Sonoff entity_id here
-      command: 3
+      command: 0
   mode: single
   icon: hass:lightbulb
 
@@ -14,6 +14,6 @@ send_rf_button2:
   - service: remote.send_command
     data:
       entity_id: remote.sonoff_1001108bb1 #Substitute your own Sonoff entity_id here
-      command: 4
+      command: 1
   mode: single
   icon: hass:lightbulb
