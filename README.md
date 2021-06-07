@@ -1,4 +1,4 @@
-# Sonoff RF Bridge
+# Sonoff RF Bridge example files
 Configuration file examples for Sonoff RF Bridge setup documentation.  The documentation for this project can be found at https://crosstalksolutions.com/sonoff-rf-bridge-how-to-setup-with-home-assistant/
 
 This repo contains 3 files:
